@@ -1,0 +1,88 @@
+.card {
+    width: var(--card-width);
+    height: var(--card-height);
+    cursor: pointer;
+    transition-duration: 0.4s;
+    display: inline-flex;
+    margin: 6px;
+}
+
+.front, .back {
+    width: var(--card-width);
+    height: var(--card-height);
+    overflow: hidden;
+    backface-visibility: hidden;
+    position: absolute;
+    transition-duration: 0.4s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+    box-shadow: 4px 4px 16px rgba(128, 128, 128, 0.4), -4px -4px 16px rgba(128, 128, 128, 0.4);
+}
+
+.front {
+    background-color: aqua;
+    box-shadow: inset 4px 4px 8px rgba(0, 0, 255, 0.2),
+                inset -4px -4px 8px rgba(0, 0, 255, 0.2);
+    transform: perspective(600px) rotateY(0deg);
+}
+
+.back {
+    background: rgb(0, 162, 255);
+    transform: perspective(600px) rotateY(180deg);
+}
+
+.back i {
+    font-size: 50px;
+}
+
+.card.flipped .front {
+    transform: perspective(600px) rotateY(-180deg);
+}
+
+.card.flipped .back {
+    transform: perspective(600px) rotateY(0deg);
+}
+
+.card.closed {
+    transform: scale(0, 0);
+}
+
+.card.closed .back {
+    background-color: rgba(0, 162, 255, 0.5);
+}
+
+button {
+    position: relative;
+    top: 160px;
+}
+
+.card-title-1 {
+    font-size: larger;
+    font-weight: 600;
+    user-select: none;
+}
+
+.card-title-2 {
+    font-size: large;
+    user-select: none;
+}
+
+@media(max-width: 600px) {
+    .card {
+        width: var(--mob-card-width);
+        height: var(--mob-card-height);
+    }
+    .front, .back {
+        width: var(--mob-card-width);
+        height: var(--mob-card-height);
+    }
+    .card-title-1 {
+        font-size: large;
+    }
+    .card-title-2 {
+        font-size: medium;
+    }
+}

@@ -1,0 +1,13 @@
+<div [ngClass]="{'memory-game-container': !playAgain, 'result-container': playAgain}">
+    <ng-container *ngIf="!playAgain">
+        <app-flip-card
+            *ngFor="let item of itemArray; let i=index;"
+            [index]="itemIndex[i]"
+            [name]="item"
+            (onCardClicked)="onCardClicked($event)">
+        </app-flip-card>
+    </ng-container>
+
+    <div *ngIf="playAgain" class="turn-details">You took {{ turns }} turns to complete the game.</div>
+    <button *ngIf="playAgain" style="width: 100%;" class="play-again-button" (click)="playAgainClicked()">Play Again</button>
+</div>

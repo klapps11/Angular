@@ -1,0 +1,10 @@
+<div class="card" (click)="itemClicked()" [ngClass]="{'flipped': cardProps.flipped, 'closed': cardProps.closed}">
+    <div class="front" style="flex-direction: column;">
+        <span class="card-title-1">KL</span>
+        <span class="card-title-2">apps</span>
+    </div>
+
+    <div class="back">
+        <i [class]="name"></i>
+    </div>
+</div>
